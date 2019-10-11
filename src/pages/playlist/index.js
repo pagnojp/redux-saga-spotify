@@ -7,15 +7,31 @@ import { Creators as PlaylistDetailsActions } from '../../store/ducks/playlistDe
 
 import { Container, Header, SongList } from './styles';
 
+import Loading from '../../components/Loading';
+
 import ClockIcon from '../../assets/images/clock.svg';
 import PlusIcon from '../../assets/images/plus.svg';
 
 const propTypes = {
-  getPlaylistDetailsRequest: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.string,
     }),
+  }).isRequired,
+  getPlaylistDetailsRequest: PropTypes.func.isRequired,
+  playlistDetails: PropTypes.shape({
+    data: PropTypes.shape({
+      thumbnail: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      songs: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        author: PropTypes.string,
+        album: PropTypes.string,
+      })),
+    }),
+    loading: PropTypes.bool,
   }).isRequired,
 };
 
@@ -24,20 +40,33 @@ class Playlist extends Component {
     this.loadPlaylistDetails();
   }
 
+  componentDidUpdate(prevPros) {
+    const { match: { params: { id } } } = this.props;
+    if (prevPros.match.params.id !== id) {
+      this.loadPlaylistDetails();
+    }
+  }
+
   loadPlaylistDetails = () => {
     const { match: { params: { id } }, getPlaylistDetailsRequest } = this.props;
     getPlaylistDetailsRequest(id);
   }
 
-  render() {
+  renderDetails = () => {
+    const { playlistDetails: { data } } = this.props;
     return (
       <Container>
         <Header>
-          <img src="https://i.scdn.co/image/55cc31d3efa495d05e034146331553db0a747cf5" alt="Playlist" />
+          <img src={data.thumbnail} alt={data.title} />
           <div>
             <span>Playlist</span>
-            <h1>Rock and Roll Hall of Fame</h1>
-            <p>15 musics</p>
+            <h1>{data.title}</h1>
+            { !!data.songs && (
+            <p>
+              {data.songs.length}
+              &nbsp; musics
+            </p>
+            ) }
             <button type="button">Play</button>
           </div>
         </Header>
@@ -52,65 +81,32 @@ class Playlist extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
-            <tr>
-              <td><img src={PlusIcon} alt="Add" /></td>
-              <td>Pearl Jam</td>
-              <td>Nirvana</td>
-              <td>Foo Fighters</td>
-              <td>4:22</td>
-            </tr>
+            { !data.songs ? (
+              <tr><td colSpan={5}> This playlist is empty</td></tr>
+            ) : (data.songs.map((song) => (
+              <tr key={song.id}>
+                <td><img src={PlusIcon} alt="Add" /></td>
+                <td>{song.title}</td>
+                <td>{song.author}</td>
+                <td>{song.album}</td>
+                <td>4:20</td>
+              </tr>
+            ))
+            ) }
           </tbody>
         </SongList>
       </Container>
+    );
+  }
+
+  render() {
+    const { playlistDetails } = this.props;
+    return playlistDetails.loading ? (
+      <Container loading>
+        <Loading />
+      </Container>
+    ) : (
+      this.renderDetails()
     );
   }
 }
