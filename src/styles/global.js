@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     text-rendering: optimizeLegibility;
   }
+  button {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;
