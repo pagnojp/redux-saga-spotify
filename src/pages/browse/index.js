@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as PlaylistsActions } from '../../store/ducks/playlists';
+
 import Loading from '../../components/Loading';
 import {
   Container, Title, List, Playlist,
