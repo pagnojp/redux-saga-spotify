@@ -4,6 +4,9 @@ import Sound from 'react-sound';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as PlayerActions } from '../../store/ducks/player';
+
 
 import {
   Container, Current, Progress, Controls, Volume, Time, ProgressSlider,
@@ -26,9 +29,11 @@ const propTypes = {
     }),
     status: PropTypes.string,
   }).isRequired,
+  play: PropTypes.func.isRequired,
+  pause: PropTypes.func.isRequired,
 };
 
-const Player = ({ player }) => (
+const Player = ({ player, play, pause }) => (
   <Container>
     { !!player.currentSong && (
       <Sound
@@ -56,12 +61,15 @@ const Player = ({ player }) => (
         <button type="button">
           <img src={BackwardIcon} alt="Shuffle" />
         </button>
-        <button type="button">
-          <img src={PlayIcon} alt="Shuffle" />
-        </button>
-        <button type="button">
-          <img src={PauseIcon} alt="Shuffle" />
-        </button>
+        { !!player.currentSong && player.status === Sound.status.PLAYING ? (
+          <button type="button" onClick={pause}>
+            <img src={PauseIcon} alt="Shuffle" />
+          </button>
+        ) : (
+          <button type="button" onClick={play}>
+            <img src={PlayIcon} alt="Shuffle" />
+          </button>
+        ) }
         <button type="button">
           <img src={ForwardIcon} alt="Shuffle" />
         </button>
@@ -100,6 +108,8 @@ const mapStateToProps = (state) => ({
   player: state.player,
 });
 
+const mapDispatchToProps = (dispatch) => bindActionCreators(PlayerActions, dispatch);
+
 Player.propTypes = propTypes;
 
-export default connect(mapStateToProps)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
