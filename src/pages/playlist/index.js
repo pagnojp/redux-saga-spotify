@@ -14,7 +14,7 @@ const propTypes = {
   getPlaylistDetailsRequest: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
@@ -25,8 +25,7 @@ class Playlist extends Component {
   }
 
   loadPlaylistDetails = () => {
-    const { match: { params: { id } } } = this.props;
-    const { getPlaylistDetailsRequest } = this.props;
+    const { match: { params: { id } }, getPlaylistDetailsRequest } = this.props;
     getPlaylistDetailsRequest(id);
   }
 
@@ -44,11 +43,13 @@ class Playlist extends Component {
         </Header>
         <SongList cellPadding={0} cellSpacing={0}>
           <thead>
-            <th />
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Album</th>
-            <th><img src={ClockIcon} alt="Dration" /></th>
+            <tr>
+              <th> </th>
+              <th>Title</th>
+              <th>Artist</th>
+              <th>Album</th>
+              <th><img src={ClockIcon} alt="Dration" /></th>
+            </tr>
           </thead>
           <tbody>
             <tr>
