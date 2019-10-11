@@ -84,7 +84,7 @@ class Sidebar extends Component {
         </div>
         <NewPlaylist>
           <img src={AddPlaylistIcon} alt="Add Playlist" />
-      New Playlist
+          New Playlist
         </NewPlaylist>
       </Container>
     );

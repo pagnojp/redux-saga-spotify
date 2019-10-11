@@ -30,5 +30,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(ErrorActions, dispatch);
+
 ErrorBox.propTypes = propTypes;
+
 export default connect(mapStateToProps, mapDispatchToProps)(ErrorBox);
