@@ -19,6 +19,9 @@ import RepeatIcon from '../../assets/images/repeat.svg';
 const propTypes = {
   player: PropTypes.shape({
     currentSong: PropTypes.shape({
+      thumbnail: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
       file: PropTypes.string,
     }),
     status: PropTypes.string,
@@ -34,11 +37,16 @@ const Player = ({ player }) => (
       />
     ) }
     <Current>
-      <img src="https://i.scdn.co/image/55cc31d3efa495d05e034146331553db0a747cf5" alt="Album Cover" />
-      <div>
-        <span>Under the Bridge</span>
-        <small>Red Hot Chili Peppers</small>
-      </div>
+      { !!player.currentSong && (
+        <>
+          <img src={player.currentSong.thumbnail} alt={player.currentSong.title} />
+          <div>
+            <span>{player.currentSong.title}</span>
+            <small>{player.currentSong.author}</small>
+          </div>
+        </>
+      ) }
+
     </Current>
     <Progress>
       <Controls>

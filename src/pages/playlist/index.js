@@ -54,9 +54,9 @@ class Playlist extends Component {
     this.loadPlaylistDetails();
   }
 
-  componentDidUpdate(prevPros) {
+  componentDidUpdate(prevProps) {
     const { match: { params: { id } } } = this.props;
-    if (prevPros.match.params.id !== id) {
+    if (prevProps.match.params.id !== id) {
       this.loadPlaylistDetails();
     }
   }
