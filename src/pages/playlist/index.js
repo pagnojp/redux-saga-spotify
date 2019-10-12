@@ -123,7 +123,7 @@ class Playlist extends Component {
   render() {
     const { playlistDetails } = this.props;
     return playlistDetails.loading ? (
-      <Container loading>
+      <Container loading="true">
         <Loading />
       </Container>
     ) : (
