@@ -33,6 +33,7 @@ export const Current = styled.div`
 `;
 
 export const Progress = styled.div`
+  width: 580px;
   display: flex;
   flex-direction: column;
   align-items: center;
