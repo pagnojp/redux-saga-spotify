@@ -39,7 +39,7 @@ const propTypes = {
   loadSong: PropTypes.func.isRequired,
   currentSong: PropTypes.shape({
     id: PropTypes.number,
-  }).isRequired,
+  }),
 };
 
 class Playlist extends Component {
@@ -143,5 +143,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(
 );
 
 Playlist.propTypes = propTypes;
+Playlist.defaultProps = { currentSong: 0 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist);
