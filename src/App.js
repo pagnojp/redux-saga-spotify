@@ -17,7 +17,7 @@ function App() {
     <>
       <GlobalStyle />
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Wrapper>
             <Container>
               <Sidebar />
