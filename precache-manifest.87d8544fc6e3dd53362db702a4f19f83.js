@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d1f7e4cfa0bd976723895bbddc826c6f",
+    "revision": "4832f839dbbbf1d20ee8472bcd668fa6",
     "url": "/redux-saga-spotify/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/redux-saga-spotify/static/js/2.b22326c0.chunk.js"
   },
   {
-    "revision": "149333a725b85845fd78",
-    "url": "/redux-saga-spotify/static/js/main.6302faf2.chunk.js"
+    "revision": "8b83bdf88d1948e017a2",
+    "url": "/redux-saga-spotify/static/js/main.9f7df71b.chunk.js"
   },
   {
     "revision": "65f0d9e29b89c8aec653",
