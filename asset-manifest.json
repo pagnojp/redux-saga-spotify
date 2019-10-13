@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/redux-saga-spotify/static/js/main.9f7df71b.chunk.js",
-    "main.js.map": "/redux-saga-spotify/static/js/main.9f7df71b.chunk.js.map",
+    "main.js": "/redux-saga-spotify/static/js/main.f132e516.chunk.js",
+    "main.js.map": "/redux-saga-spotify/static/js/main.f132e516.chunk.js.map",
     "runtime-main.js": "/redux-saga-spotify/static/js/runtime-main.b8997544.js",
     "runtime-main.js.map": "/redux-saga-spotify/static/js/runtime-main.b8997544.js.map",
     "static/css/2.96479aa2.chunk.css": "/redux-saga-spotify/static/css/2.96479aa2.chunk.css",
-    "static/js/2.b22326c0.chunk.js": "/redux-saga-spotify/static/js/2.b22326c0.chunk.js",
-    "static/js/2.b22326c0.chunk.js.map": "/redux-saga-spotify/static/js/2.b22326c0.chunk.js.map",
+    "static/js/2.5fc2a50d.chunk.js": "/redux-saga-spotify/static/js/2.5fc2a50d.chunk.js",
+    "static/js/2.5fc2a50d.chunk.js.map": "/redux-saga-spotify/static/js/2.5fc2a50d.chunk.js.map",
     "index.html": "/redux-saga-spotify/index.html",
-    "precache-manifest.87d8544fc6e3dd53362db702a4f19f83.js": "/redux-saga-spotify/precache-manifest.87d8544fc6e3dd53362db702a4f19f83.js",
+    "precache-manifest.0bdbb6ceb9e08d384182203063aa4a7a.js": "/redux-saga-spotify/precache-manifest.0bdbb6ceb9e08d384182203063aa4a7a.js",
     "service-worker.js": "/redux-saga-spotify/service-worker.js",
     "static/css/2.96479aa2.chunk.css.map": "/redux-saga-spotify/static/css/2.96479aa2.chunk.css.map",
     "static/media/add_playlist.svg": "/redux-saga-spotify/static/media/add_playlist.3f6e21d5.svg",
@@ -28,7 +28,7 @@
   "entrypoints": [
     "static/js/runtime-main.b8997544.js",
     "static/css/2.96479aa2.chunk.css",
-    "static/js/2.b22326c0.chunk.js",
-    "static/js/main.9f7df71b.chunk.js"
+    "static/js/2.5fc2a50d.chunk.js",
+    "static/js/main.f132e516.chunk.js"
   ]
 }
