@@ -1,5 +1,5 @@
 {
-  "homepage": "https: //pagnojp.github.io/redux-saga-spotify/",
+  "homepage": "https://pagnojp.github.io/redux-saga-spotify/",
   "name": "redux-saga-spotify",
   "version": "0.1.0",
   "private": true,
@@ -23,6 +23,8 @@
   },
   "scripts": {
     "start": "set NODE_ENV=development && react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

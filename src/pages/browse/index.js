@@ -48,8 +48,6 @@ class Browse extends Component {
               </p>
             </Playlist>
           )) }
-
-
         </List>
       </Container>
     );
