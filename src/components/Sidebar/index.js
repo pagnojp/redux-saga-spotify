@@ -37,37 +37,37 @@ class Sidebar extends Component {
               <Link to="/">Browse</Link>
             </li>
             <li>
-              <a href="/">Radio</a>
+              <Link to="/">Radio</Link>
             </li>
           </Nav>
           <Nav>
             <li><span>Your Library</span></li>
             <li>
-              <a href="/">Your Daily Mix</a>
+              <Link to="/">Your Daily Mix</Link>
             </li>
             <li>
-              <a href="/">Recent Played</a>
+              <Link to="/">Recent Played</Link>
             </li>
             <li>
-              <a href="/">Musics</a>
+              <Link to="/">Musics</Link>
             </li>
             <li>
-              <a href="/">Albums</a>
+              <Link to="/">Albums</Link>
             </li>
             <li>
-              <a href="/">Artists</a>
+              <Link to="/">Artists</Link>
             </li>
             <li>
-              <a href="/">Stations</a>
+              <Link to="/">Stations</Link>
             </li>
             <li>
-              <a href="/">Local Files</a>
+              <Link to="/">Local Files</Link>
             </li>
             <li>
-              <a href="/">Videos</a>
+              <Link to="/">Videos</Link>
             </li>
             <li>
-              <a href="/">Podcasts</a>
+              <Link to="/">Podcasts</Link>
             </li>
           </Nav>
           <Nav>
